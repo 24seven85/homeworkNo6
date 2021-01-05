@@ -104,3 +104,28 @@ let truck1 = truckQueue.pop()
 print(truckQueue)
 let truck2 = truckQueue.pop()
 print(truckQueue)
+
+
+
+func filterNumbers(array: [Int], checkfunktion: (Int) -> Bool) -> [Int] {
+    var myArrey: [Int] = []
+    
+    for element in array {
+        if checkfunktion(element) {
+           myArrey.append(element)
+        }
+    }
+    return myArrey
+}
+
+let array = Array(1...20)
+print(array)
+
+let lessNumbers = filterNumbers(array: array) { $0 <= 10 }
+print(lessNumbers)
+
+let moreNumbers = filterNumbers(array: array) { $0 > 10 }
+print(moreNumbers)
+
+
+
