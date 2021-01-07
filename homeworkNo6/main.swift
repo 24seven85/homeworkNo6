@@ -56,6 +56,14 @@ struct Queue<T: Numerable> {
     mutating func pop() -> T? {
         return carWash.isEmpty ? .none : carWash.removeFirst()
     }
+    subscript(index: Int) -> String? {
+        guard !carWash.isEmpty else { return .none }
+        if 0 <= index && index < carWash.count {
+            return carWash[index].vehicleNum
+        }
+        return .none
+        
+    }
 }
 
 extension Queue: CustomStringConvertible {
@@ -77,6 +85,8 @@ carQueue.push(Car(brand: "honda", vehicleNum: "675haf"))
 carQueue.push(Car(brand: "toyota", vehicleNum: "563kln"))
 carQueue.push(Car(brand: "audi", vehicleNum: "123buf"))
 print(carQueue)
+
+print(carQueue[0])
 
 let car1 = carQueue.pop()
 print(carQueue)
